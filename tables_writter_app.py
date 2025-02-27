@@ -5,7 +5,7 @@ def print_table(number, up_to=10):
 # Take user input
 try:
     num = int(input("Enter a number: "))
-    limit = int(input("Enter the range up to which you want the table: "))
+    limit = int(input("*******************Enter the range up to which you want the table*********************: "))
     print_table(num, limit)
 except ValueError:
     print("Invalid input. Please enter a valid number.")
