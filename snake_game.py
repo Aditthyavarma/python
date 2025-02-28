@@ -16,6 +16,7 @@ BLACK = (0, 0, 0)
 RED = (213, 50, 80)
 GREEN = (0, 255, 0)
 BLUE = (50, 153, 213)
+YELLOW = (255, 255, 0)
 
 # Snake settings
 SNAKE_BLOCK = 10
@@ -29,6 +30,13 @@ font_style = pygame.font.SysFont("bahnschrift", 25)
 def draw_snake(snake_block, snake_list):
     for x in snake_list:
         pygame.draw.rect(SCREEN, BLACK, [x[0], x[1], snake_block, snake_block])
+
+# Animated background pattern
+def draw_pattern():
+    for i in range(0, WIDTH, 20):
+        for j in range(0, HEIGHT, 20):
+            color = YELLOW if (i // 20 + j // 20) % 2 == 0 else BLUE
+            pygame.draw.rect(SCREEN, color, [i, j, 20, 20])
 
 # Message display
 def message(msg, color):
@@ -84,7 +92,8 @@ def game_loop():
             game_close = True
         x += x_change
         y += y_change
-        SCREEN.fill(BLUE)
+
+        draw_pattern()
         pygame.draw.rect(SCREEN, GREEN, [food_x, food_y, SNAKE_BLOCK, SNAKE_BLOCK])
 
         snake_head = [x, y]
@@ -110,4 +119,5 @@ def game_loop():
     quit()
 
 game_loop()
+
 
