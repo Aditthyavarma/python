@@ -1,0 +1,8 @@
+import emoji
+
+text_with_emojis = "I love Python 🐍🔥 and AI 🤖💡!"
+text_without_emojis = emoji.demojize(text_with_emojis)
+
+print("Original Text:", text_with_emojis)
+print("Converted Text:", text_without_emojis)
+
